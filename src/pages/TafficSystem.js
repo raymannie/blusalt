@@ -52,14 +52,14 @@ const TrafficSystem = () => {
     const [isRunning, setIsRunning] = useState(false);
     const [isReversed, setIsReversed] = useState(false);
 
-    const lightOrder = ['green', 'yellow', 'red'];
-    const lightDurations = {
-        green: 10000, // 10 seconds for green light
-        yellow: 5000, // 5 seconds for yellow light
-        red: 10000,   // 10 seconds for red light
-    };
 
     useEffect(() => {
+        const lightOrder = ['green', 'yellow', 'red'];
+        const lightDurations = {
+            green: 10000, // 10 seconds for green light
+            yellow: 5000, // 5 seconds for yellow light
+            red: 10000,   // 10 seconds for red light
+        };
         let interval;
 
         if (isRunning) {
