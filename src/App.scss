@@ -37,17 +37,43 @@ a{
   display: flex;
   position: relative;
 }
+.transbg{
+  @media #{ $largedown }{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: #a55497;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    &.open{
+      pointer-events: all;
+      opacity: 0.2;
+    }
+  }
+}
 .side-nav{
   min-width: 253px;
   height: 100vh;
+  overflow-y: auto;
   background-color: #990c81;
   padding: 30px 20px 20px;
   display: flex;
   flex-direction: column;
   position: sticky;
   top: 0;
+  left: 0;
+  z-index: 4;
   @media #{ $largedown }{
-    display: none;
+    // display: none;
+    transform: translateX(-100%);
+    position: fixed;
+    bottom: 0;
+    &.open{
+      transform: translateX(0);
+    }
   }
   &_logo-container{
     max-width: 60px;
@@ -157,7 +183,7 @@ a{
   }
   &_menu{
     display: none;
-    @media #{ $mediumdown }{
+    @media #{ $largedown }{
       display: inline-flex;
       align-items: center;
       justify-content: center;

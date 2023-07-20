@@ -9,7 +9,7 @@ import { FaUsers } from "react-icons/fa"
 import { RiSettings3Fill } from "react-icons/ri"
 
 
-const SideNav = () => {
+const SideNav = ({ isOpen, setIsOpen }) => {
     const navList = [
         {
             title: 'Dashboard',
@@ -42,32 +42,35 @@ const SideNav = () => {
         },
     ];
     return (
-        <div className="side-nav">
-            <div className="side-nav_logo-container">
-                <img className="side-nav-logo" src={WemaLogo} alt="Wemma logo" />
-            </div>
-            <div className="side-nav_list-wrapper">
-                <ul>
-                    {navList.map((list, index) => (
-                        <li key={index}>
-                            <Link className={index === 0 ? 'active' : ''} to="/">
-                                {list.icon}
-                                <span>{list.title}</span>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className="side-nav_bottom">
-                <div className="side-nav_bottom-img">
+        <>
+            <div className={`side-nav ${isOpen ? 'open' : ''}`}>
+                <div className="side-nav_logo-container">
+                    <img className="side-nav-logo" src={WemaLogo} alt="Wemma logo" />
+                </div>
+                <div className="side-nav_list-wrapper">
+                    <ul>
+                        {navList.map((list, index) => (
+                            <li key={index}>
+                                <Link className={index === 0 ? 'active' : ''} to="/">
+                                    {list.icon}
+                                    <span>{list.title}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="side-nav_bottom">
+                    <div className="side-nav_bottom-img">
 
-                </div>
-                <div>
-                    <p>Nafisa Sh.</p>
-                    <span>Support manager</span>
+                    </div>
+                    <div>
+                        <p>Nafisa Sh.</p>
+                        <span>Support manager</span>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div onClick={setIsOpen} className={`transbg ${isOpen ? 'open' : ''}`}></div>
+        </>
     );
 }
 

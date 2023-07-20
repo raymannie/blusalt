@@ -3,15 +3,16 @@ import { BiSolidSun } from "react-icons/bi";
 import { IoNotifications } from "react-icons/io5";
 import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
 import Profile from "../images/profile.png";
 
 
-const HeaderNav = () => {
+const HeaderNav = ({ setIsOpen, isOpen }) => {
     return (
         <>
             <div className="header-nav">
-                <div className="header-nav_menu">
-                    <AiOutlineMenu />
+                <div className="header-nav_menu" onClick={setIsOpen}>
+                    {isOpen ? <GrClose /> : <AiOutlineMenu />}
                 </div>
                 <h2 className="header-nav_title-desktop">Dashboard</h2>
                 <div className="header-nav_right">
